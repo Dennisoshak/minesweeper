@@ -1,37 +1,35 @@
-import React,{useState} from 'react';
+import React, { useState } from "react";
 const bomb = "💣";
-const flag = '🚩'
+const flag = "🚩";
 
-const Cell = ({cell,setStatus,status}) => {
-
-  const [value,setValue] = useState('')
-const handleClick=(e)=>{
-    if (status === 'Game over') return
-    if (e.nativeEvent.button === 2){
-        console.log('right')
-        e.preventDefault()
+const Cell = ({ cell, setStatus, status, setFlagCount,setCount }) => {
+  const [value, setValue] = useState("");
+  const handleClick = (e) => {
+    if (status === "Game over") return;
+    setValue(cell.isBomb ? bomb : cell.neighbour);
+    setCount((prev)=>prev+1)
+    cell.isBomb && setStatus("Game over");
+  };
+  const handleFlag = (e) => {
+    e.preventDefault();
+    if (value !== flag) {
+      setValue(flag);
+      setFlagCount((prev) => prev - 1);
+    } else {
+      setValue("");
+      setFlagCount((prev) => prev + 1);
     }
-    setValue(cell.isBomb?bomb:cell.neighbour)
-    cell.isBomb && setStatus('Game over')
-}
-console.log(status)
-const handleFlag=(e)=>{
-    e.preventDefault()
-    value!==flag?setValue(flag): setValue(cell.isBomb?bomb:cell.neighbour)
-    cell.isBomb && setStatus('Game over')
-
-}
-    return (
-        <div  onClick={(e)=>handleClick(e)}onContextMenu={(e)=>handleFlag(e)}className="cell-value">
-        {value}
-      </div>
-    );
-}
-
-
-
-
+  };
+  return (
+    <div
+      style={status === "Game over" ? { pointerEvents: "none" } : {}}
+      onClick={(e) => handleClick(e)}
+      onContextMenu={(e) => handleFlag(e)}
+      className="cell-value"
+    >
+      {value}
+    </div>
+  );
+};
 
 export default Cell;
-
-
