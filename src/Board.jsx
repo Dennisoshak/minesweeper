@@ -36,14 +36,14 @@ const Board = () => {
   }, []);
   useEffect(() => {
     count === 46 && setStatus("Well done!");
-    
+
   }, [count]);
 
   return (
     <div className="board">
       <h1 style={{ textAlign: "center" }}>Minesweeper</h1>
       <div style={{ textAlign: "center", height: "2rem" }}>
-        <h3>{status}</h3>
+        <h2 style={{color:"#8b1515"}}>{status}</h2>
       </div>
       <h3 style={{ marginLeft: "2rem" }}>
         Flags: {flagCount }<span style={{marginLeft:"1rem"}}> Bombs:10</span>

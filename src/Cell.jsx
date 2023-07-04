@@ -29,7 +29,7 @@ const Cell = ({ cell, setStatus, status, setFlagCount, setCount }) => {
 
   return (
     <div
-      style={status === "Game over" ? { pointerEvents: "none" } : {}}
+      style={status === "Game over" ? { pointerEvents: "none"} : {}}
       onClick={(e) => handleClick(e)}
       onContextMenu={(e) => handleFlag(e)}
       className="cell-value"
