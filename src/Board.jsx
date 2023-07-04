@@ -35,7 +35,7 @@ const Board = () => {
     // eslint-disable-next-line
   }, []);
   useEffect(() => {
-    count === 46 && setStatus("Well done!");
+    count === 54 && setStatus("Well done!");
 
   }, [count]);
 
