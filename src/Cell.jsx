@@ -26,10 +26,11 @@ const Cell = ({ cell, setStatus, status, setFlagCount, setCount }) => {
     status === "Well done!" && setValue(cell.isBomb ? bomb : cell.neighbour);
     // eslint-disable-next-line
   }, [status]);
+  
 
   return (
     <div
-      style={status === "Game over" ? { pointerEvents: "none"} : {}}
+      style={status  ? { pointerEvents: "none"} : {}}
       onClick={(e) => handleClick(e)}
       onContextMenu={(e) => handleFlag(e)}
       className="cell-value"
