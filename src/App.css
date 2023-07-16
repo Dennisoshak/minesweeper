@@ -10,7 +10,7 @@ color:azure
   padding:2rem 1rem 1rem;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr ;
-  width: 60vh;
+  width: 60%;
 
 }
 
@@ -40,7 +40,7 @@ color:azure
    
   }
  .board-container{
-  width: 94%;
+  width: 92%;
  }
  .cell {
   width: 80%;
